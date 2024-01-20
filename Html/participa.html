@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<link rel="stylesheet" href="../Css/estilos.css">
+<!--
+<script src="js/script.js"></script>
+-->
+
+<head>
+    <title>Futchap Participa</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Resource/Icono.png" sizes="32x32" type="image/png">
+
+</head>
+
+<body style="background: linear-gradient(to right, #666, #b4b4b4);">
+
+<header>
+    <a href="../index.html">
+    <img src="../Resource/Icono.png" alt="Icono 1" style="margin-right: 10px;">
+    </a>
+    <a href="../index.html" style="text-decoration: none; color: inherit;">
+    <h1 style="margin-right:20px;">Futchap Merida</h1>
+    </a>
+    <img src="../Resource/Icono2.gif" alt="Icono 2" style="margin-left: 10px;">
+</header>
+
+
+<div id="menu">
+    <button class="hamburger-btn">&#9776; Menu</button>
+    <ul class="menu-list">
+        <li class="menu-button"><a href="../Html/equipo.html">Equipo</a></li>
+        <li class="menu-button"><a href="../index.html">Noticias Liga</a></li>
+        <li class="menu-button">
+            <a>Conócenos</a>
+            <ul class="submenu">
+                <li class="menu-button"><a href="../Html/participa.html">Participa</a></li>
+                <li class="menu-button"><a href="../Html/reglamento.html">Reglamento</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+<div id="contenido">
+    <div class="col1">
+        <span class="estilo-h2">Equipo</span>
+        </br>
+        <img src="../Resource/Campo.gif" width="339" height="542">
+        <img  class="c11" src="../Resource/Chapa.jpg" width="64" height="79" style="position: absolute;
+    left: 136px;
+    top: 116px;
+    width: 81px;"
+        >
+        <img class="c1" src="../Resource/Chapa.jpg" width="64" height="79" style="    position: absolute;
+    left: 20px;
+    top: 124px;
+    width: 81px;"
+        >
+        <img class="c2" src="../Resource/Chapa.jpg" width="64" height="79" style="position: absolute;
+    left: 136px;
+    top: 491px;
+    width: 81px;"
+        >
+        <img class="c3" src="../Resource/Chapa.jpg" width="64" height="79" style="position: absolute;
+    left: 262px;
+    top: 316px;
+    width: 81px;"
+        >
+        <img class="c4" src="../Resource/Chapa.jpg" width="64" height="79" style="    position: absolute;
+    left: 189px;
+    top: 376px;
+    width: 81px;"
+        >
+        <img class="c5" src="../Resource/Chapa.jpg" width="64" height="79" style="    position: absolute;
+    left: 87px;
+    top: 375px;
+    width: 81px;"
+        >
+        <img class="c6" src="../Resource/Chapa.jpg" width="64" height="79" style="    position: absolute;
+    left: 7px;
+    top: 321px;
+    width: 81px;"
+        >
+        <img class="c7" src="../Resource/Chapa.jpg" width="64" height="79" style="position: absolute;
+    left: 134px;
+    top: 263px;
+    width: 81px;"
+        >
+        <img class="c8" src="../Resource/Chapa.jpg" width="64" height="79" style="position: absolute;
+    left: 257px;
+    top: 213px;
+    width: 81px;"
+        >
+        <img  class="c9" src="../Resource/Chapa.jpg" width="64" height="79" style="    position: absolute;
+    left: 243px;
+    top: 118px;
+    width: 81px;"
+        >
+        <img class="c10" src="../Resource/Chapa.jpg" width="64" height="79" style="position: absolute;
+    left: 5px;
+    top: 217px;
+    width: 81px;"
+        >
+    </div>
+    <div class="col2">
+        <div class="Centro_Participa">
+            <h2 style="text-decoration: underline;">Formulario de Participación</h2>
+            <br>
+
+            <form>
+                <div class="Centrar_input">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required="" placeholder="Introduce tu nombre"><br><br>
+                </div>
+                <div class="Centrar_input">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required placeholder="Introduce tu correo"><br><br>
+                </div>
+                <br>
+                <p>------------------------------------------------------------------------</p>
+                <br>
+                <div class="Porque_Participas">
+                    <label for="motivo">¿Por qué quieres participar?</label>
+                    <textarea id="motivo" name="motivo" rows="4" cols="50" required
+                              placeholder="Introduce el motivo por el cual quiere participar "></textarea><br><br>
+                </div>
+                <label for="jugado">¿Has jugado previamente?</label>
+                <input type="checkbox" id="jugado" name="jugado"><br><br>
+                <div class="A_boton_enviar">
+                    <input type="submit" value="Enviar">
+                </div>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+    <div class="col3">
+        <p>Traductor</p>
+
+        <div id='google_translate_element' class='google'></div>
+
+        <script type='text/javascript'>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'es',
+                    includedLanguages: 'ca,eu,gl,en,fr,it,pt,de',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    gaTrack: true
+                }, 'google_translate_element');
+            }
+        </script>
+
+        <script type='text/javascript'
+                src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+
+        <br>
+        <img src="../Resource/Jugador2.gif" width="50%" height="auto">
+
+
+        <br>
+        <img src="../Resource/Jugador1.gif" width="30%" height="auto">
+    </div>
+
+</div>
+<script src="../Js/js.js"></script>
+
+</body>
+<br>
+<br>
+<br>
+<footer>
+    <div class="social-text">Redes Sociales</div>
+    <div class="social-icons">
+        <img src="../Resource/instagram.png" alt="Icono 1">
+        <img src="../Resource/twiter.png">
+        <img src="../Resource/facebook.png" alt="Icono 3">
+    </div>
+    <div class="footer-links">
+        <a style="color: #fff;" href="participa.html">Quiero participar</a><br>
+        <a style="color: #fff;" href="participa.html">Contáctenos</a>
+    </div>
+</footer>
+
+
+</html>

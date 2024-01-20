@@ -1,0 +1,399 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+
+
+#videoteca {
+    background-color: #333333;
+    color: white;
+
+
+
+}
+
+#contenido {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px;
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+.col1, .col2, .col3 {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.col1 {
+
+    width: 30%;
+
+
+}
+
+.col2 {
+
+    display: flex;
+    width: 32%;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+
+}
+
+.col3 {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+#clasificatoria {
+
+    margin: 0 auto;
+    width: 80%;
+    font-size: 18px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.social-icons {
+    color: #000000;
+}
+
+.social-icons a {
+    width: 2px;
+}
+
+
+.social-text {
+    margin-bottom: 10px;
+}
+
+.social-icons img {
+    margin: 0 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+footer .footer-links a {
+    text-decoration: none;
+}
+
+footer .footer-links a:hover {
+    text-decoration: underline;
+
+}
+
+
+.A_boton_enviar input {
+    padding: 3px 27px;
+    background: black;
+    color: white;
+    border: 1px solid;
+    border-color: yellow;
+}
+
+.A_boton_enviar input:hover {
+    background-color: white;
+    color: #333;
+    border: none;
+
+    box-shadow: 1px 2px 37px -6px #000000;
+}
+
+.Centro_Participa {
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    background-color: #989898;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    box-shadow: 0px 0px 50px -15px #F2FF00;
+}
+.estilo-h2 {
+    border: 3px solid black;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.imagenesIndex {
+    display: flex;
+    gap: 5px; /* Espacio entre las imágenes */
+}
+form input {
+
+    border: none;
+}
+
+.Porque_Participas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Centrar_input {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+
+.menu-button {
+    background-color: black;
+    border: 2px solid yellow;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.menu-button a {
+    color: white;
+    text-decoration: none;
+}
+
+#menu ul {
+    padding: 0;
+    background-color: #444;
+    text-align: center;
+}
+
+.hamburger-btn {
+    display: none;
+    background-color: black;
+    color: white;
+    border: 2px solid yellow;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submenu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    background-color: #444;
+    border: 2px solid #f1f100;
+
+}
+
+.menu-button:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    display: block;
+    background-color: #1a1a1a;
+    border: 2px solid #dada82;
+
+
+}
+
+.c1{
+    display: block;
+}
+.c1.vannish{
+    display: none;
+}
+.c2{
+    display: block;
+}
+.c2.vannish{
+    display: none;
+}
+.c3{
+    display: block;
+}
+.c3.vannish{
+    display: none;
+}.c4{
+     display: block;
+ }
+.c4.vannish{
+    display: none;
+}.c5{
+     display: block;
+ }
+.c5.vannish{
+    display: none;
+}.c6{
+     display: block;
+ }
+.c6.vannish{
+    display: none;
+}.c7{
+     display: block;
+ }
+.c7.vannish{
+    display: none;
+}.c8{
+     display: block;
+ }
+.c8.vannish{
+    display: none;
+}.c9{
+     display: block;
+ }
+.c9.vannish{
+    display: none;
+}.c10{
+     display: block;
+ }
+.c10.vannish{
+    display: none;
+}.c11{
+     display: block;
+ }
+.c11.vannish{
+    display: none;
+}
+
+
+#portero {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 10px;
+    transition: 0.5s;
+    left:150px;
+    background: url('../Resource/portero.png') no-repeat;
+    background-size: cover;
+}
+
+#porteria {
+    width: 400px;
+    height: 200px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background: url('../Resource/porteria.png') no-repeat;
+    background-size: cover;
+}
+
+#pelota {
+    width: 20px;
+    height: 20px;
+    background-color: whitesmoke;
+    position: absolute;
+    bottom: 60px;
+    left:192px;
+top:175px;
+    transition: 0.5s;
+}
+
+/* Estilo para colocar los botones en línea */
+.botonesDisp button {
+    display: inline-block;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        width: 100%;
+    }
+
+
+}
+@media screen and (max-width: 600px) {
+    .hamburger-btn {
+        display: block;
+    }
+
+    .menu-list {
+        position: absolute;
+        top:0;
+        right: 0;
+        width: 70%;
+        background-color: #444;
+        text-align: center;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: opacity 0.5s, height 0.5s;
+    }
+
+
+    .menu-list.show {
+        opacity: 1;
+        height: auto;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+
+
+    body {
+        width: 100%;
+    }
+
+    .col2 {
+        width: 100%;
+    }
+
+    .col1 {
+        flex-wrap: wrap;
+        margin-right: 226px;
+    }
+
+    #videoteca {
+        width: 229%;
+        height: 80%;
+        margin-left: 1px;
+    }
+
+    .Centro_Participa {
+        width: 80%;
+        height: 80%;
+        margin-left: 1px;
+        padding: 29px;
+    }
+
+}
