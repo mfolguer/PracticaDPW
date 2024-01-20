@@ -192,24 +192,24 @@ text-decoration: underline;">Noticias Liga</h2>
     </div>
     <div class="col3">
 <script>
-    fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://api.deezer.com/search/artist?q=eminem'))
+    fetch('https://api.allorigins.win/get?url='+ encodeURIComponent(url))
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+
+            const info = JSON.parse(data.contents);
+
             let html = `
-          <img src="${data.data[0].picture_big}" width="200">
-          <h2>${data.data[0].name}</h2>
-        `;
+      <img src="${info.data[0].picture_big}" >
+      <h2>${info.data[0].name}</h2>
+      <ul>`;
 
-            html += '<h3>Canciones Populares</h3><ul>';
-            data.data[0].tracklist.slice(0,5).forEach(song => {
-                html += `
-            <li>${song.title}</li>
-          `;
+            info.data[0].tracklist.forEach(song => {
+                html += `<li>${song.title}</li>`;
             });
-            html += '</ul>'
 
-            document.getElementById('eminem-data').innerHTML = html;
+            html += `</ul>`;
+
+            document.getElementById("eminem-data").innerHTML = html;
 
         });
 </script>
