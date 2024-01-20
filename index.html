@@ -192,10 +192,10 @@ text-decoration: underline;">Noticias Liga</h2>
     </div>
     <div class="col3">
 <script>
-    fetch('https://api.deezer.com/search/artist?q=eminem')
+    fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(url))
         .then(response => response.json())
         .then(data => {
-
+            console.log(data);
             let html = `
           <img src="${data.data[0].picture_big}" width="200">
           <h2>${data.data[0].name}</h2>
