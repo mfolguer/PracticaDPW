@@ -192,7 +192,7 @@ text-decoration: underline;">Noticias Liga</h2>
     </div>
     <div class="col3">
 <script>
-    fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(url))
+    fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://api.deezer.com/search/artist?q=eminem'))
         .then(response => response.json())
         .then(data => {
             console.log(data);
