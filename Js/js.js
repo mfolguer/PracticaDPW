@@ -7,26 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 });
-fetch('https://api.deezer.com/search/artist?q=eminem')
-    .then(response => response.json())
-    .then(data => {
 
-        let html = `
-          <img src="${data.data[0].picture_big}" width="200">
-          <h2>${data.data[0].name}</h2>
-        `;
-
-        html += '<h3>Canciones Populares</h3><ul>';
-        data.data[0].tracklist.slice(0,5).forEach(song => {
-            html += `
-            <li>${song.title}</li>
-          `;
-        });
-        html += '</ul>'
-
-        document.getElementById('eminem-data').innerHTML = html;
-
-    });
 var c1 = document.querySelector('.c1');
 c1.addEventListener('click', function () {
     c1.classList.toggle('vannish');
