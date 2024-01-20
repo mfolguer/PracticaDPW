@@ -194,38 +194,29 @@ text-decoration: underline;">Noticias Liga</h2>
         <h1>Deezer API Example</h1>
         <button onclick="searchArtist()">Search Artist</button>
         <div id="result"></div>
-
         <script>
-            function searchArtist() {
-                // Aquí, realiza una solicitud de búsqueda de un artista específico (Eminem en este caso).
-                fetch('https://api.deezer.com/search/artist/?q=eminem&limit=1')
-                    .then(response => response.json())
-                    .then(data => {
-                        // Muestra los resultados en la página.
-                        displayResults(data);
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
+            async function searchArtist() {
+                try {
+                    const response = await fetch('https://api.deezer.com/search/artist/?q=eminem&limit=1');
+                    const data = await response.json();
+                    displayResults(data);
+                } catch (error) {
+                    console.error('Error:', error);
+                }
             }
-
             function displayResults(data) {
-                // Muestra los resultados en el div con id "result".
                 const resultDiv = document.getElementById('result');
                 resultDiv.innerHTML = ''; // Limpia el contenido anterior.
 
-                // Verifica si hay resultados.
                 if (data && data.data && data.data.length > 0) {
                     const artist = data.data[0];
                     const artistName = artist.name;
                     const artistId = artist.id;
 
-                    // Crea un enlace al perfil del artista en Deezer.
                     const artistLink = document.createElement('a');
                     artistLink.href = `https://www.deezer.com/artist/${artistId}`;
                     artistLink.textContent = `Visit ${artistName}'s Deezer Profile`;
 
-                    // Agrega el enlace al div de resultados.
                     resultDiv.appendChild(artistLink);
                 } else {
                     resultDiv.textContent = 'No se encontraron resultados.';
