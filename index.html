@@ -191,29 +191,47 @@ text-decoration: underline;">Noticias Liga</h2>
 
     </div>
     <div class="col3">
-<script>
-    fetch('https://api.allorigins.win/get?url='+ encodeURIComponent(url))
-        .then(response => response.json())
-        .then(data => {
+        <h1>Deezer API Example</h1>
+        <button onclick="searchArtist()">Search Artist</button>
+        <div id="result"></div>
 
-            const info = JSON.parse(data.contents);
+        <script>
+            function searchArtist() {
+                // Aquí, realiza una solicitud de búsqueda de un artista específico (Eminem en este caso).
+                fetch('https://api.deezer.com/search/artist/?q=eminem&limit=1')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Muestra los resultados en la página.
+                        displayResults(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
 
-            let html = `
-      <img src="${info.data[0].picture_big}" >
-      <h2>${info.data[0].name}</h2>
-      <ul>`;
+            function displayResults(data) {
+                // Muestra los resultados en el div con id "result".
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = ''; // Limpia el contenido anterior.
 
-            info.data[0].tracklist.forEach(song => {
-                html += `<li>${song.title}</li>`;
-            });
+                // Verifica si hay resultados.
+                if (data && data.data && data.data.length > 0) {
+                    const artist = data.data[0];
+                    const artistName = artist.name;
+                    const artistId = artist.id;
 
-            html += `</ul>`;
+                    // Crea un enlace al perfil del artista en Deezer.
+                    const artistLink = document.createElement('a');
+                    artistLink.href = `https://www.deezer.com/artist/${artistId}`;
+                    artistLink.textContent = `Visit ${artistName}'s Deezer Profile`;
 
-            document.getElementById("eminem-data").innerHTML = html;
-
-        });
-</script>
-        <div id="eminem-data"></div>
+                    // Agrega el enlace al div de resultados.
+                    resultDiv.appendChild(artistLink);
+                } else {
+                    resultDiv.textContent = 'No se encontraron resultados.';
+                }
+            }
+        </script>
 
         <p>Traductor</p>
 
