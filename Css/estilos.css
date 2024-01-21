@@ -320,7 +320,7 @@ form input {
     border: 2px solid black;
     position: relative;
     overflow: hidden;
-    background: url('../Resource/porteria.PNG') no-repeat;
+    background: url('../Resource/porteria.png') no-repeat;
     background-size: cover;
 }
 
