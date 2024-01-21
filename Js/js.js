@@ -7,7 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 });
-
+$(document).ready(function() {
+    $('#miCarrusel').carousel({
+        interval: 2000,
+        pause: 'hover'
+    });
+});
 var c1 = document.querySelector('.c1');
 c1.addEventListener('click', function () {
     c1.classList.toggle('vannish');
@@ -82,5 +87,36 @@ function cambiarImagen(nuevaImagen) {
     xhr.open("GET", `../Resource/${nuevaImagen}`, true);
     xhr.send();
 }
+const API_KEY = 'AIzaSyDk6-hkZd_MjEiVruYkdwt20n_cb8OZo-8';
 
+const VIDEO_ID = 'MO24NEMa9VU';
+function onYouTubeIframeAPIReady() {
+    const player = new YT.Player('player', {
+        height: '100',
+        width: '200',
+        videoId: VIDEO_ID,
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+function onPlayerReady(event) {
+}
+function onPlayerStateChange(event) {
+}
+function getVideoInfo(videoId) {
+    const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&key=${API_KEY}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const videoTitle = data.items[0].snippet.title;
+            console.log(`Título del video: ${videoTitle}`);
+        })
+        .catch(error => console.error('Error al obtener información del video:', error));
+}
+
+// Llama a la función para obtener información del video
+getVideoInfo(VIDEO_ID);
 

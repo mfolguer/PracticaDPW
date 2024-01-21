@@ -9,7 +9,7 @@
 <head>
     <title>Futchap Equipo</title>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="Resource/Icono.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../Resource/Icono.png" sizes="32x32" type="image/png">
 
 </head>
 
@@ -135,109 +135,136 @@
         </div>
 
         <script>
-            const portero = document.getElementById('portero');
-            const pelota = document.getElementById('pelota');
+            $(document).ready(function () {
+                actualizarTabla();
 
-            function lanzarPenalti(direccionLanzamiento) {
-                pelota.style.top = '175px';
-                pelota.style.left = '192px';
-                portero.style.left = '150px';
-                portero.style.transform = 'none';
-                switch (direccionLanzamiento) {
-                    case 'izquierda':
-                        pelota.style.left = '90px';
-                        pelota.style.top = '125px';
+                const portero = document.getElementById('portero');
+                const pelota = document.getElementById('pelota');
 
-                        break;
-                    case 'centro':
-                        pelota.style.top = '125px';
-                        break;
-                    case 'derecha':
-                        pelota.style.left = '300px';
-                        pelota.style.top = '125px';
-
-                        break;
-                    default:
-                        break;
-                }
-                const direcciones = ['izquierda', 'centro', 'derecha'];
-                const direccionAleatoria = direcciones[Math.floor(Math.random() * direcciones.length)];
-                switch (direccionAleatoria) {
-                    case 'izquierda':
-                        portero.style.left = '30px';
-                        break;
-                    case 'centro':
-                        portero.style.transform = 'rotateX(180deg)';
-                        break;
-                    case 'derecha':
-                        portero.style.left = '270px';
-                        break;
-                    default:
-                        break;
-                }
-                var gol = 0;
-                setTimeout(function () {
-                    if (direccionAleatoria === direccionLanzamiento) {
-                        alert('¡Portero atrapa el balón!');
-
-                    } else {
-                        alert('¡Gol!');
-                        gol = 1;
-
-                    }
-                    var nombre = document.getElementById('nombre').value;
-                    if (!nombre) {
-                        alert("Por favor, introduce un nombre para poder guardar las cookies (resultados).");
-                    } else {
-                        marcarGol(gol, nombre);
-                    }
+                function lanzarPenalti(direccionLanzamiento) {
                     pelota.style.top = '175px';
                     pelota.style.left = '192px';
                     portero.style.left = '150px';
                     portero.style.transform = 'none';
-                }, 1000);
+                    switch (direccionLanzamiento) {
+                        case 'izquierda':
+                            pelota.style.left = '90px';
+                            pelota.style.top = '125px';
 
-            }
+                            break;
+                        case 'centro':
+                            pelota.style.top = '125px';
+                            break;
+                        case 'derecha':
+                            pelota.style.left = '300px';
+                            pelota.style.top = '125px';
 
-            function marcarGol(gol, nombre) {
-                var cookieValue = getCookie(nombre);
-                var penalti = 1;
-                var goles = 0;
-                if (cookieValue) {
-
-                    var match = cookieValue.toString().match(/penaltis=(\d+)goles=(\d+)/);
-                    if (match) {
-                        penalti = parseInt(match[1], 10);
-                        goles = parseInt(match[2], 10);
+                            break;
+                        default:
+                            break;
                     }
-                    penalti += 1;
-                    goles += gol;
-                    cookieValue = "penaltis=" + penalti + "goles=" + goles;
-                } else {
-                    // Si la cookie no existe,
-                    penalti = 1; // Primer penalti
-                    cookieValue = "penaltis=" + penalti + "goles=" + gol;
+                    const direcciones = ['izquierda', 'centro', 'derecha'];
+                    const direccionAleatoria = direcciones[Math.floor(Math.random() * direcciones.length)];
+                    switch (direccionAleatoria) {
+                        case 'izquierda':
+                            portero.style.left = '30px';
+                            break;
+                        case 'centro':
+                            portero.style.transform = 'rotateX(180deg)';
+                            break;
+                        case 'derecha':
+                            portero.style.left = '270px';
+                            break;
+                        default:
+                            break;
+                    }
+                    var gol = 0;
+                    setTimeout(function () {
+                        if (direccionAleatoria === direccionLanzamiento) {
+                            alert('¡Portero atrapa el balón!');
+
+                        } else {
+                            alert('¡Gol!');
+                            gol = 1;
+
+                        }
+                        var nombre = document.getElementById('nombre').value;
+                        if (!nombre) {
+                            alert("Por favor, introduce un nombre para poder guardar las cookies (resultados).");
+                        } else {
+                            marcarGol(gol, nombre);
+                        }
+                        pelota.style.top = '175px';
+                        pelota.style.left = '192px';
+                        portero.style.left = '150px';
+                        portero.style.transform = 'none';
+                        actualizarTabla();
+
+                    }, 1000);
+
                 }
 
-                document.cookie = "User" + nombre + '=' + cookieValue + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/;';
-            }
+                function marcarGol(gol, nombre) {
+                    var cookieValue = getCookie(nombre);
+                    var penalti = 1;
+                    var goles = 0;
+                    if (cookieValue) {
 
-            function getCookie(nombre) {
-                var name = "User" + nombre + "=";
-                var decodedCookie = decodeURIComponent(document.cookie);
-                var cookies = decodedCookie.split(';');
-
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                    if (cookie.indexOf(name) == 0) {
-                        return cookie.substring(name.length, cookie.length);
+                        var match = cookieValue.toString().match(/penaltis=(\d+)goles=(\d+)/);
+                        if (match) {
+                            penalti = parseInt(match[1], 10);
+                            goles = parseInt(match[2], 10);
+                        }
+                        penalti += 1;
+                        goles += gol;
+                        cookieValue = "penaltis=" + penalti + "goles=" + goles;
+                    } else {
+                        // Si la cookie no existe,
+                        penalti = 1; // Primer penalti
+                        cookieValue = "penaltis=" + penalti + "goles=" + gol;
                     }
+
+                    document.cookie = "User" + nombre + '=' + cookieValue + '; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/;';
                 }
 
-                return null;
-            }
+                function getCookie(nombre) {
+                    var name = "User" + nombre + "=";
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var cookies = decodedCookie.split(';');
 
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i].trim();
+                        if (cookie.indexOf(name) == 0) {
+                            return cookie.substring(name.length, cookie.length);
+                        }
+                    }
 
+                    return null;
+                }
+
+                function actualizarTabla() {
+                    $("#jugadores tbody").empty();
+                    var cookies = document.cookie.split(';');
+                    console.log("Cookies:", cookies);
+                    cookies.forEach(function (cookie) {
+                        cookie = cookie.trim();
+
+                        if (cookie.indexOf('User') === 0) {
+                            var keyValuePairs = cookie.split('=');
+
+                            var nombreUsuario = keyValuePairs[0].substring(4);
+                            var match = cookie.toString().match(/penaltis=(\d+)goles=(\d+)/);
+                            if (match) {
+                                numero1 = parseInt(match[1], 10);
+                                numero2 = parseInt(match[2], 10);
+                            }
+                            console.log("Usuario:", nombreUsuario, "Número1:", numero1, "Número2:", numero2);
+                            var newRow = "<tr><td>" + nombreUsuario + "</td><td>" + numero1 + "</td><td>" + numero2 + "</td></tr>";
+                            $("#jugadores tbody").append(newRow);
+                        }
+                    });
+                }
+            });
         </script>
 
 
@@ -257,38 +284,14 @@
                 <!-- Los datos se introducen en el script de abajo-->
                 </tbody>
             </table>
-            <script>
-                $(document).ready(function () {
-                    var cookies = document.cookie.split(';');
-                    console.log("Cookies:", cookies);
 
-                    // Itera sobre cada cookie
-                    cookies.forEach(function (cookie) {
-                        // Elimina espacios en blanco
-                        cookie = cookie.trim();
-
-                        // Verifica si la cookie comienza con "User"
-                        if (cookie.indexOf('User') === 0) {
-                            // Divide la cookie en partes
-                            var keyValuePairs = cookie.split('=');
-
-                            var nombreUsuario = keyValuePairs[0].substring(4);
-                            var match = cookie.toString().match(/penaltis=(\d+)goles=(\d+)/);
-                            if (match) {
-                                numero1 = parseInt(match[1], 10);
-                                numero2 = parseInt(match[2], 10);
-                            }
-                            console.log("Usuario:", nombreUsuario, "Número1:", numero1, "Número2:", numero2);
-                            var newRow = "<tr><td>" + nombreUsuario + "</td><td>" + numero1 + "</td><td>" + numero2 + "</td></tr>";
-                            $("#jugadores tbody").append(newRow);
-
-                        }
-                    });
-                });
-            </script>
         </div>
     </div>
     <div class="col3">
+        <h3>Musica</h3>
+        <div id="player"></div>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <br>
         <p>Traductor</p>
 
         <div id='google_translate_element' class='google'></div>
@@ -326,9 +329,9 @@
 <footer>
     <div class="social-text">Redes Sociales</div>
     <div class="social-icons">
-        <img src="../Resource/instagram.png" alt="Icono 1">
-        <img src="../Resource/twiter.png">
-        <img src="../Resource/facebook.png" alt="Icono 3">
+        <a href="https://www.instagram.com/futbolchapasmadrid/"><img src="../Resource/instagram.png" alt="Icono 1"></a>
+        <a href="https://twitter.com/FutbolchapasLFC"><img src="../Resource/twiter.png"></a>
+        <a href="https://www.facebook.com/ligafutbolchapas/?locale=es_ES"><img src="../Resource/facebook.png" alt="Icono 3"></a>
     </div>
     <div class="footer-links">
         <a style="color: #fff;" href="participa.html">Quiero participar</a><br>

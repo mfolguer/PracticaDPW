@@ -8,7 +8,10 @@ body {
     font-family: Arial, sans-serif;
 
 }
-
+header a, header h1, header img {
+    display: inline-block;
+    vertical-align: middle;
+}
 header {
     background-color: #333;
     color: white;
@@ -25,7 +28,6 @@ header img {
     height: 60px;
     margin-right: 10px;
 }
-
 
 
 #videoteca {
@@ -297,6 +299,9 @@ form input {
     display: none;
 }
 
+#miCarrusel {
+    margin-top: 20px;
+}
 
 #portero {
     width: 100px;
@@ -349,18 +354,20 @@ top:175px;
 
     .menu-list {
         position: absolute;
-        top:0;
+        top: 0;
         right: 0;
         width: 70%;
         background-color: #444;
         text-align: center;
         opacity: 0;
-        height: 0;
+        height: auto;
         overflow: hidden;
         transition: opacity 0.5s, height 0.5s;
+        z-index: 1001;
     }
-
-
+    .menu-list .submenu {
+        position: static;
+    }
     .menu-list.show {
         opacity: 1;
         height: auto;
